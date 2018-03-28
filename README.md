@@ -1,4 +1,4 @@
-Role Name
+Z3 Ansible Role
 =========
 
 Build and install Microsoft's Z3 Theorem Prover (https://github.com/Z3Prover/z3) on Ubuntu.
