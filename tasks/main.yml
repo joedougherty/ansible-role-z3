@@ -1,0 +1,24 @@
+---
+# tasks file for Z3
+- name: Pull latest from GitHub
+  git:
+    repo: "https://github.com/Z3Prover/z3.git"
+    version: "master"
+    dest: "{{ git_dest_dir }}"
+  register: gitclone
+
+- name: Generate Makefile
+  command: python3 scripts/mk_make.py --python
+  args:
+    chdir: "{{ git_dest_dir }}"
+  when: gitclone.changed
+
+- name: Make
+  make:
+    chdir: "{{ make_dir }}"
+
+- name: Make install
+  make:
+    chdir: "{{ make_dir }}"
+    target: install
+  become: true

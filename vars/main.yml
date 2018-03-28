@@ -1,0 +1,5 @@
+---
+# vars file for Z3
+
+git_dest_dir: /tmp/z3
+make_dir: /tmp/z3/build
